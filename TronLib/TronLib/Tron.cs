@@ -3,6 +3,7 @@ using TronLib.Api;
 using TronLib.Crypto;
 using TronLib.Enums;
 using TronLib.Tools;
+using TronNet;
 
 namespace TronLib
 {
@@ -120,6 +121,9 @@ namespace TronLib
         /// <returns>decimal значение баланса</returns>
         private static decimal GetAccountTRC20Balance(string address, TRC20Token trc20Token)
         {
+            if (address.IsHex())
+                throw new ArgumentException("ADDRESS SHOULD BE BASE58");
+
             var contractAddress = "";
 
             switch (trc20Token)
@@ -176,11 +180,12 @@ namespace TronLib
         }
 
         /// <summary>
-        /// Вычисляет площадь фигуры. Фигура автоматически определяется по входным параметрам
+        /// Метод <c>GetTransactionHistory</c> получает список операций в период между указанными датами
         /// </summary>
-        /// <param name="side">Длины сторон фигуры</param>
-        /// <returns>double Площадь фигуры, или ArgumentException,
-        /// если фигура с такими параметрами отсутствует</returns>
+        /// <param name="address">TRON адрес</param>
+        /// <param name="minTimestamp">минимальная дата</param>
+        /// <param name="maxTimestamp">максимальная дата</param>
+        /// <returns>JSON со списком транзакций</returns>
         public static JObject GetTransactionHistory(string address, DateTime minTimestamp, DateTime maxTimestamp)
         {
             if (String.IsNullOrEmpty(address))

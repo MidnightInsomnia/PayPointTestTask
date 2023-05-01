@@ -74,6 +74,7 @@ namespace TronLib.Tools
 
             return 0;
         }
+
         //Небольшой костыль, привожу строку с адресом к виду
         //0000000000000000000000418847c22718c97e4cf7264e462c3d88dd353fe507
         public static string NormalizeAddressHexStr(string hexStr)

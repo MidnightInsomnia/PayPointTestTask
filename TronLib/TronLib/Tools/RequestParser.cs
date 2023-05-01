@@ -82,24 +82,19 @@ namespace TronLib.Tools
         {
             try
             {
-                var res = "";
-
                 var result = JObject.Parse(request);
-
-                Console.WriteLine($"JSON {result}");
+                var res = "";
 
                 try
                 {
-                    res = result["balance"].ToString();
+                    res = result["constant_result"][0].ToString();
                 }
                 catch
                 {
                     res = "0";
                 }
 
-                long.TryParse(res, out var sunBalanse);
-
-                return Tools.SunToTRX(sunBalanse);
+                return Tools.GetBalanceFromHex(res);
             }
             catch (Exception ex)
             {
