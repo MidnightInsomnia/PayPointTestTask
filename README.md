@@ -45,7 +45,7 @@
 
 ## Задание 4. Получение истории операций в период между датами(Вывод: JSON или массив транзакций)
 ### Использование: <br>
-![image](https://user-images.githubusercontent.com/61066851/235493469-629a19c6-f039-44ea-a3b3-9f769dd8fb26.png)
+![image](https://user-images.githubusercontent.com/61066851/235499404-22cd83db-d812-46c1-90cf-582afce4981d.png)
 
 ### Консольный вывод:
 ![image](https://user-images.githubusercontent.com/61066851/235493560-f4f7156a-5905-43d7-8d52-64a7735f61d6.png)
